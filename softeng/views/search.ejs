@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ./partials/header %>
+</header>
+
+<main>
+    
+
+<h2>Φόρμα Αναζήτησης</h2>
+<p>Συμπληρώστε τα παρακάτω πεδία:</p>
+
+
+
+<form>
+  Ονοματεπώνυμο:<br>
+  <input type="text" name="fullname" value="">
+  <br>
+  Ημερομηνία Γέννησης:<br>
+  <input type="text" name="date" value="">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value="">
+  <br>
+   Τηλέφωνο Επικοινωνίας:<br>
+  <input type="text" name="phone" value="">
+  <br>
+    Πόλη:<br>
+  <input type="text" name="city" value="">
+  <br>
+    Διεύθυνση:<br>
+  <input type="text" name="address" value="">
+  <br>
+      Τίτλος Πτυχίου:<br>
+  <input type="text" name="degree_title" value="">
+  <br>
+      Βαθμός Πτυχίου:<br>
+  <input type="text" name="degree_grade" value="">
+  <br>
+    <p>Επαγγελματική προυπηρεσία;</p>
+    <input type="radio" name="answer" value="yes"> Ναι<br>
+    <input type="radio" name="answer" value="yes"> Όχι<br>
+    <p>Αν υπήρξε συμπληρώστε:</p>
+   Θέση Ενασχόλησης:<br>
+  <input type="text" name="job" value="">
+  <br>
+   Διάρκεια Ενασχόλησης:<br>
+  <input type="text" name="duration" value="">
+  <br>
+     Μητρική Γλώσσα:<br>
+  <input type="text" name="language1" value="">
+  <br>
+     Ξένες Γλώσσες:<br>
+  <input type="text" name="language2" value="">
+  <br>
+  
+  
+ 
+  
+      <p>Ενδιαφέρομαι για :</p>
+    <input type="radio" name="pos" value="lfjob"> Εργασία<br>
+    <input type="radio" name="pos" value="lfstudy"> Μεταπτυχιακές σπουδές<br>
+    <input type="radio" name="pos" value="both"> Και τα δύο<br>
+          <p>Τα αποτελέσματα να αναφέρονται σε:</p>
+    <input type="radio" name="place" value="in"> Ελλάδα<br>
+    <input type="radio" name="place" value="out"> Εξωτερικό<br>
+    <input type="radio" name="place" value="both"> Και τα δύο<br>
+    
+  
+  
+</form> 
+
+<p>Επιλέξτε "Υποβολή" για να ξεκινήσει η αναζήτηση</p>
+
+ <br>
+  <a href="/results" class="btn btn-secondary">Υποβολή</a>
+
+
+</main>
+
+<footer>
+    <a href="/users/logout" class="btn btn-secondary">Αποσύνδεση</a>
+    <% include ./partials/footer %>
+</footer>
+
+</body>
+</html>

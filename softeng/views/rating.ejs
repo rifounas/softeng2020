@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%include ./partials/head %>
+</head>
+
+<header>
+   <% include ./partials/header %>
+</header>
+
+    <meta charset="UTF-8">
+    <title>Stars</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .star{
+          color: goldenrod;
+          font-size: 2.0rem;
+          padding: 0 1rem; 
+        }
+        .star::before{
+          content: '\2606';    
+          cursor: pointer;
+        }
+        .star.rated::before{
+          
+          content: '\2605';  
+        }
+        
+        .stars{
+            counter-reset: rateme 0;   
+            font-size: 2.0rem;
+            font-weight: 900;
+        }
+        .star.rated{
+            counter-increment: rateme 1;
+        }
+        .stars::after{
+            content: counter(rateme) '/5';
+        }
+    </style>
+
+<body>
+    <h1 class="lead mb-3"> Βαθμολογήστε την εφαρμογή μας με βάση την ευχρηστία, την ποιότητα και την αποτελεσματικότητα της:</h1>
+   
+    <div class="stars" data-rating="3">
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+    </div>
+    <p>Βοηθήστε μας να γίνουμε ακόμα καλύτεροι!</p>
+
+
+
+<h1 class="lead mb-3"><b> Σχόλια :</b></h1>
+
+   <br>
+<textarea rows="6" cols="50" name="comment" form="usrform">
+</textarea>
+
+
+    <script>
+        
+       
+        document.addEventListener('DOMContentLoaded', function(){
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(function(star){
+                star.addEventListener('click', setRating); 
+            });
+            
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            let target = stars[rating - 1];
+            target.dispatchEvent(new MouseEvent('click'));
+        });
+        function setRating(ev){
+            let span = ev.currentTarget;
+            let stars = document.querySelectorAll('.star');
+            let match = false;
+            let num = 0;
+            stars.forEach(function(star, index){
+                if(match){
+                    star.classList.remove('rated');
+                }else{
+                    star.classList.add('rated');
+                }
+                
+                if(star === span){
+                    match = true;
+                    num = index + 1;
+                }
+            });
+            document.querySelector('.stars').setAttribute('data-rating', num);
+        }
+        
+    </script>
+<br>
+<a href="/thanks" class="btn btn-secondary">Καταχώρηση σχολίων</a>
+
+
+
+
+<footer>
+     <a href="/users/logout" class="btn btn-secondary">Αποσύνδεση</a>
+     <% include ./partials/footer %>
+</footer>
+</body>
+</html>
